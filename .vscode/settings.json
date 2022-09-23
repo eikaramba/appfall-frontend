@@ -1,0 +1,37 @@
+{
+    "i18n-ally.localesPaths": [
+        "src/lib/translations"
+    ],
+    "i18n-ally.sortKeys": true,
+    "i18n-ally.keepFulfilled": true,
+    "i18n-ally.pathMatcher": "{locale}/{namespace}.json",
+    "i18n-ally.enabledFrameworks": [
+        "svelte"
+    ],
+   "i18n-ally.encoding": "utf-8",
+    "i18n-ally.namespace": true,
+    "i18n-ally.keystyle": "nested",
+    "i18n-ally.sourceLanguage": "de",
+    "i18n-ally.extract.parsers.html": {
+        "attributes": ["text", "title", "alt", "placeholder", "label", "aria-label"],
+        "ignoredTags": ["style"],
+        "vBind": true,
+        "inlineText": true
+    },
+    "i18n-ally.refactor.templates": [
+        {
+            "source": "html-inline",
+            "templates": [
+            "{$t('{key}'{args})}"
+            ],
+            // accept globs, resolved to project root (optional)
+            "include": [
+            "src/**/*.{svelte,ts,js}",
+            "index.html"
+            ],
+            "exclude": [
+            "src/config/**"
+            ]
+        }
+        ]
+}
