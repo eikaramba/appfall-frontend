@@ -22,11 +22,13 @@
   function toggleMenu() {
     $menuOpen = !$menuOpen;
   }
+
+
 </script>
 
 <svelte:window bind:scrollY />
 <NotificationCenter />
-<nav class="w-full mt-2 z-2 fixed {['/'].some(white => $page.url.pathname == white)?'text-white':'text-dark'} transition-colors {scrolled ? 'scrolled bg-black/55' : ''}">
+<nav class="w-full mt-2 z-20 fixed {['/'].some(white => $page.url.pathname == white)?'text-white':'text-dark'} transition-colors {scrolled ? 'scrolled bg-black/55' : ''}">
 
   <div class="max-w-screen-xl flex px-4 py-2 relative justify-center items-center md:py-4 lg:mx-auto md:px-12">
     <a class="block" href="/{$locale}">
@@ -63,7 +65,7 @@
     </div>
   </div>
 </nav>
-<div class="prose flex-grow pt-32 max-w-screen-xl mx-auto px-4 md:px-12">
+<div class="flex-grow pt-32 max-w-screen-xl mx-auto px-4 md:px-12">
   <slot />
 </div>
 

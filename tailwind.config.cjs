@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 
-import daisyui from "daisyui";
-import typography from "@tailwindcss/typography";
+const daisyui = require("daisyui");
+const typography = require("@tailwindcss/typography");
 
-export default {
+module.export = {
   content: ['./src/**/*.{svelte,js,ts}'],
   plugins: [daisyui,typography],
   daisyui: {
@@ -20,8 +20,6 @@ export default {
           "neutral-content": "#f9fafb",
           "base-100": "#F0EEED",
           "base-content": "#393E41",
-          "--animation-btn": "0",
-          "--animation-input": "0",
           "--btn-focus-scale": "1",
         },
       },
