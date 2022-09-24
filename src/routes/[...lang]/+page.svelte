@@ -113,7 +113,7 @@
 
 </script>
 {#if !assistentStarted && !searchStarted}
-    <h1 class="font-light text-2xl mb-4" transition:slide>{ $t('whereToDispose') }</h1>
+    <h1 class="font-light text-2xl mb-4" transition:slide|local>{ $t('whereToDispose') }</h1>
 {/if}
 
 
@@ -142,7 +142,7 @@
     </Dropzone>
     {:else}
     <div class:spinner={loading} class="spinner-overlay spinner-dark spinner-large">
-        <ul class="mt-6 space-y-2 flex flex-col items-start" transition:slide>
+        <ul class="mt-6 space-y-2 flex flex-col items-start" transition:slide|local>
             {#if query}
             {#if result.length==0}
                 <li class="text-gray-500">{ $t('noResults') }</li>
@@ -162,11 +162,15 @@
                 {/each}
             {/if}
             {:else}
-            {#each currentSuggestions as suggestion}
-                <li on:click={()=>{!suggestion.id?addAnswer(suggestion.additional_attribute.key,suggestion.additional_attribute.value):openItem(suggestion.id)}}  class="p-4 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer {suggestion.id?'bg-primary text-white':''}">
-                    {suggestion.name}
-                </li>
-            {/each}
+            {#if currentSuggestions.length==0}
+                <li class="text-gray-500">{ $t('noResults') }</li>
+            {:else}
+                {#each currentSuggestions as suggestion}
+                    <li on:click={()=>{!suggestion.id?addAnswer(suggestion.additional_attribute.key,suggestion.additional_attribute.value):openItem(suggestion.id)}}  class="p-4 bg-white rounded-lg hover:bg-primary hover:text-white cursor-pointer {suggestion.id?'bg-primary text-white':''}">
+                        {suggestion.name}
+                    </li>
+                {/each}
+                {/if}
             {/if}
         </ul>
     </div>
@@ -176,8 +180,8 @@
 <section>
     {#if assistentStarted && question && question.answers}
     <div class="fixed bottom-0 pb-16 left-0 right-0 flex flex-col text-center items-stretch justify-center bg-neutral text-neutral-content">
-        <h2 class="font-light text-2xl mt-4 mb-2" transition:slide>{question.question_text}</h2>
-        <ul class="mt-6 space-y-2 px-4" transition:slide> 
+        <h2 class="font-light text-2xl mt-4 mb-2" transition:slide|local>{question.question_text}</h2>
+        <ul class="mt-6 space-y-2 px-4" transition:slide|local> 
             {#each question.answers as answer}
                 <li on:click={()=>{addAnswer(question.attribute_key,answer.attribute_value)}} class="py-4 bg-gray-200 rounded-lg text-base-content hover:bg-primary hover:text-white cursor-pointer">{answer.answer_text}</li>
             {/each}
