@@ -1,3 +1,9 @@
 {
-  "startAssistent": "Assistent starten"
+  "CloseAssistant": "Assistent beenden",
+  "or": "oder",
+  "searchDB": "Datenbank durchsuchen",
+  "startAssistent": "Assistent starten",
+  "useImageAI": "Bild automatisch erkennen",
+  "whereToDispose": "Wo entsorge ich was?",
+  "noResults": "Keine Ergebnisse gefunden"
 }

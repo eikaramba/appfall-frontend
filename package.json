@@ -27,10 +27,12 @@
     "@tailwindcss/typography": "^0.5.7",
     "daisyui": "^2.31.0",
     "dayjs": "^1.11.5",
+    "dropzone": "^6.0.0-beta.2",
     "format-fuse.js": "^1.0.3",
     "fuse.js": "^6.6.2",
     "query-string": "^7.1.1",
     "sass": "^1.55.0",
+    "svelte-file-dropzone": "^1.0.0",
     "sveltekit-i18n": "^2.2.2",
     "unplugin-icons": "^0.14.10"
   }

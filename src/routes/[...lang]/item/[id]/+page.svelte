@@ -25,7 +25,7 @@
 
     {#each data.components as bin}
         <div class="flex items-center">
-            <img src="/icons/{bin.bin}.svg" class="mr-8">{bin.name}
+            <img src="/icons/{bin.bin}.svg" class="mr-8 mb-4">{bin.name}
         </div>
     {/each}
 

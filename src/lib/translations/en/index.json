@@ -1,3 +1,9 @@
 {
-  "startAssistent": "Start Assistent"
+  "CloseAssistant": "exit wizard",
+  "or": "or",
+  "searchDB": "Search database",
+  "startAssistent": "Start Assistent",
+  "useImageAI": "Automatically detect image",
+  "whereToDispose": "Where do I dispose of what?",
+  "noResults": "No results found"
 }

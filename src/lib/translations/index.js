@@ -12,12 +12,12 @@ const config = {
   loaders: [
 {
   locale: 'de',
-  key: 'index',
+  key: '',
   loader: async () => (  await import('./de/index.json')).default,
 },
 {
   locale: 'en',
-  key: 'index',
+  key: '',
   loader: async () => (  await import('./en/index.json')).default,
 }
   ]};

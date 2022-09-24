@@ -9,7 +9,7 @@
         "svelte"
     ],
    "i18n-ally.encoding": "utf-8",
-    "i18n-ally.namespace": true,
+    "i18n-ally.namespace": false,
     "i18n-ally.keystyle": "nested",
     "i18n-ally.sourceLanguage": "de",
     "i18n-ally.extract.parsers.html": {
