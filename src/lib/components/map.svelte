@@ -104,39 +104,62 @@
     const coords = [lon, lat];
     var position = fromLonLat(coords);
     view.setCenter(position);
-    view.setZoom(15);
+    view.setZoom(14);
     minimumDistance=-1;
 
     if (markCenter) {
       homeFeature.setGeometry(new Point(position));
     }
+    console.log(lat,lon);
 
-      // let heliumGateways = await fetch(`https://api.helium.io/v1/hotspots/location/distance?lat=${lat}&lon=${lon}&distance=5000`);
+      // let heliumGateways = await fetch(`http://localhost:8001/disposal_sites?lat=${lon}&long=${lat}&radius=10000&bins=recycling_yard`);
+      let heliumGateways = await fetch(`http://localhost:8001/disposal_sites?lat=${lon}&long=${lat}&radius=10000`);
       // gatewaysSource.clear();
-      // if (heliumGateways.status == 200) {
-      //   heliumGateways = await heliumGateways.json();
+      try {
+        if (heliumGateways.status == 200) {
+          heliumGateways = await heliumGateways.json();
+    
+          const heliumGatewaysArray = [];
+          console.log(heliumGateways);
+          heliumGateways.forEach((gateway) => {
+          //   //gateway.distance, gateway.gain, gateway.elevation
+          //   if (gateway.status.online != "online") return;
+          //   if (!ignoreDistance && (minimumDistance == -1 || gateway.distance < minimumDistance)) minimumDistance = gateway.distance;
+    
+            const coords = fromLonLat([gateway.location.lat, gateway.location.lang]);
+            // const heliumGatewayFeature = new Feature({
+            //   geometry: new Circle(coords, 1000),
+            // });
+            const heliumGatewayFeature = new Feature({
+            });
   
-      //   const heliumGatewaysArray = [];
-      //   heliumGateways.data.forEach((gateway) => {
-      //     //gateway.distance, gateway.gain, gateway.elevation
-      //     if (gateway.status.online != "online") return;
-      //     if (!ignoreDistance && (minimumDistance == -1 || gateway.distance < minimumDistance)) minimumDistance = gateway.distance;
+            heliumGatewayFeature.setStyle(new Style({
+              image: new Icon({
+                anchor: [0.5, 46],
+                anchorXUnits: "fraction",
+                anchorYUnits: "pixels",
+                src: "/icons/small/"+gateway.bins[0]+".png",
+              }),
+            }));
+            
+            heliumGatewayFeature.setGeometry(new Point(coords));
   
-      //     const coords = fromLonLat([gateway.lng, gateway.lat]);
-      //     const heliumGatewayFeature = new Feature({
-      //       geometry: new Circle(coords, gateway.gain * 13),
-      //     });
-      //     heliumGatewayFeature.setStyle(
-      //       new Style({
-      //         fill: new Fill({
-      //           color: [10, 207, 131, 0.25],
-      //         }),
-      //       })
-      //     );
-      //     heliumGatewaysArray.push(heliumGatewayFeature);
-      //   });
-      //   gatewaysSource.addFeatures(heliumGatewaysArray);
-      // }
+            // heliumGatewayFeature.setStyle(
+            //   new Style({
+            //     fill: new Fill({
+            //       color: [10, 207, 131, 1],
+            //     }),
+            //   })
+            // );
+            heliumGatewaysArray.push(heliumGatewayFeature);
+          });
+          
+          console.log(heliumGatewaysArray);
+          gatewaysSource.addFeatures(heliumGatewaysArray);
+        }
+      } catch (err) {
+        console.log(err);
+      }
 
 
     if(!ignoreDistance && minimumDistance==-1) minimumDistance=10000;

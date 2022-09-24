@@ -57,7 +57,7 @@
 
     async function refreshData(){
         loading=true;
-        await timeout(1000)
+        await timeout(100)
         const response = await fetch('http://localhost:8001/restriction?'+stringify(attributes), {
         method: 'GET',
         headers: {
@@ -141,7 +141,7 @@
         <p class="text-current">{ $t('useImageAI') }</p>
     </Dropzone>
     {:else}
-    <div class:spinner={loading} class="spinner-overlay spinner-dark spinner-large">
+    <div class:spinner={loading} class="spinner-overlay spinner-dark spinner-custom z-0">
         <ul class="mt-6 space-y-2 flex flex-col items-start" transition:slide|local>
             {#if query}
             {#if result.length==0}

@@ -90,6 +90,12 @@
     left: calc(50% - (3em / 2));
   }
 
+  &.spinner-custom::after {
+    width: 3em;
+    height: 3em;
+    top: 15px;
+    left: calc(50% - (3em / 2));
+  }
   &.spinner-white::after {
     color: white;
   }

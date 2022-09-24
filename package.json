@@ -30,7 +30,7 @@
     "dropzone": "^6.0.0-beta.2",
     "format-fuse.js": "^1.0.3",
     "fuse.js": "^6.6.2",
-    "ol": "^7.1.0",
+    "ol": "6.15.1",
     "query-string": "^7.1.1",
     "sass": "^1.55.0",
     "svelte-file-dropzone": "^1.0.0",
