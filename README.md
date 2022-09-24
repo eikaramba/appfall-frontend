@@ -10,6 +10,8 @@ The Backend code for the app can be found here:
 
 https://github.com/lagmoellertim/appfall-backend
 
+See a Video of how it works here (German): https://youtu.be/aIquklnh8g4?t=4923
+
 The App has 3 different ways to find the introduction for an item
 
 - Fuzzy Search
