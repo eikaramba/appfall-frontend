@@ -1,38 +1,30 @@
-# create-svelte
+# Frontend for AppFall Webapp from the Münster Hackathon 2022.
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+We did a good 3rd place and also won 2nd for the audience award.
 
-## Creating a project
+## What is this?
 
-If you're seeing this, you've probably already done this step. Congrats!
+An app to get infos how to dispose items. What belongs where. It is mainly in German and the recycling workflows you find in Germany. However it has i18n support.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+The Backend code for the app can be found here:
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+https://github.com/lagmoellertim/appfall-backend
+
+The App has 3 different ways to find the introduction for an item
+
+- Fuzzy Search
+- Assistent graph based attributes (Question-Answer system)
+- Image detection of an image
+
+
+
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+First execute `npm install` to install dependencies
+
+then
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
